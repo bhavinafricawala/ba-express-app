@@ -3,6 +3,7 @@ const User = require("../Model/User");
 const getUser = (req, res) => {
   User.find((err, users) => {
     if (err) res.send(err);
+    console.log("GetUser called completed successfully!");
     res.json(users);
   });
 };
@@ -23,6 +24,7 @@ const createUser = (req, res) => {
           if (err) {
             res.send(err);
           }
+          console.log("CreateUser call completed successfully!");
           res.json(user);
         });
       }
@@ -43,14 +45,20 @@ const updateUser = (req, res) => {
     (err, User) => {
       if (err) {
         res.send(err);
-      } else res.json(User);
+      } else {
+        console.log("CreateUser call completed successfully!");
+        res.json(User);
+      }
     }
   );
 };
 
 const deleteUser = (req, res) => {
   User.deleteOne({ _id: req.params.userID })
-    .then(() => res.json({ message: "User Deleted" }))
+    .then(() => {
+      console.log("DeleteUser call completed successfully!");
+      res.json({ message: "User Deleted" });
+    })
     .catch((err) => res.send(err));
 };
 
@@ -59,6 +67,7 @@ const findUserByEmail = (req, res) => {
     if (err) {
       res.send(err);
     } else {
+      console.log("FindUserByEmail call completed successfully!");
       res.json(user);
     }
   });
