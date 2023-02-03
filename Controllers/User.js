@@ -12,8 +12,7 @@ const createUser = (req, res) => {
     if (err) {
       res.send(err);
     } else {
-      console.log(Object.entries(user).length);
-      if (Object.entries(user).length > 0) {
+      if (typeof object !== "undefined" && object !== null) {
         res.json({ isExist: true });
       } else {
         const user = new User({
