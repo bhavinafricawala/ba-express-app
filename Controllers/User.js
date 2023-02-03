@@ -63,14 +63,17 @@ const deleteUser = (req, res) => {
 };
 
 const findUserByEmail = (req, res) => {
-  User.findOne({ email: req.body.email }, (err, user) => {
-    if (err) {
-      res.send(err);
-    } else {
-      console.log("FindUserByEmail call completed successfully!");
-      res.json(user);
+  User.findOne(
+    { email: req.body.email, password: req.body.password },
+    (err, user) => {
+      if (err) {
+        res.send(err);
+      } else {
+        console.log("FindUserByEmail call completed successfully!");
+        res.json(user);
+      }
     }
-  });
+  );
 };
 
 module.exports = {
