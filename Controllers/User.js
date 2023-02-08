@@ -19,7 +19,7 @@ const createUser = (req, res) => {
         const user = new User({
           email: req.body.email,
           password: req.body.password,
-          token: "",
+          token: "na",
         });
         user.save((err, user) => {
           if (err) {
