@@ -19,6 +19,7 @@ const createUser = (req, res) => {
         const user = new User({
           email: req.body.email,
           password: req.body.password,
+          token: "",
         });
         user.save((err, user) => {
           if (err) {
@@ -39,6 +40,7 @@ const updateUser = (req, res) => {
       $set: {
         email: req.body.email,
         password: req.body.password,
+        token: req.body.token,
       },
     },
     { new: true },

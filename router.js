@@ -1,3 +1,4 @@
+const { callBack } = require("./Controllers/TeslaCallBack");
 const {
   getUser,
   createUser,
@@ -18,5 +19,6 @@ router.post("/user", createUser);
 router.post("/user/findbyemail", findUserByEmail);
 router.put("/user/:userID", updateUser);
 router.delete("/user/:userID", deleteUser);
+router.get("/callback", callBack);
 
 module.exports = router;
