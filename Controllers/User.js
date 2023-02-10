@@ -8,6 +8,17 @@ const getUser = (req, res) => {
   });
 };
 
+const getUserById = (req, res) => {
+  User.findOne({ _id: req.params.userID }, (err, user) => {
+    if (err) {
+      res.send(err);
+    } else {
+      console.log("GetUserByID call completed successfully!");
+      res.json(user);
+    }
+  });
+};
+
 const createUser = (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
@@ -82,6 +93,7 @@ const findUserByEmail = (req, res) => {
 
 module.exports = {
   getUser,
+  getUserById,
   createUser,
   updateUser,
   deleteUser,

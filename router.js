@@ -5,6 +5,7 @@ const {
   updateUser,
   deleteUser,
   findUserByEmail,
+  getUserById,
 } = require("./Controllers/User");
 //const auth = require("./middleware/auth");
 
@@ -15,6 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/user", getUser);
+router.get("/user/:userID", getUserById);
 router.post("/user", createUser);
 router.post("/user/findbyemail", findUserByEmail);
 router.put("/user/:userID", updateUser);
