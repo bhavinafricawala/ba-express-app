@@ -41,6 +41,8 @@ const updateUser = (req, res) => {
         email: req.body.email,
         password: req.body.password,
         token: req.body.token,
+        codeVerifier: req.body.codeVerifier,
+        codeChallenge: req.body.codeChallenge,
       },
     },
     { new: true },

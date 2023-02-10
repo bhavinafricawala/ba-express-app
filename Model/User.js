@@ -13,6 +13,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  codeVerifier: {
+    type: String,
+    required: false,
+  },
+  codeChallenge: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
